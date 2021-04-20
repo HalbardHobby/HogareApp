@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :schedules
   resources :approvals
   resources :services
   get 'static_pages/home'

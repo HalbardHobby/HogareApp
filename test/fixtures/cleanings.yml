@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2021-04-20 16:44:17
+  address_id: 1
+  client_id: 1
+  employee_id: 1
+  admin_id: MyString
+  integer: MyString
+  approved: false
+  price: 1
+
+two:
+  start_time: 2021-04-20 16:44:17
+  address_id: 1
+  client_id: 1
+  employee_id: 1
+  admin_id: MyString
+  integer: MyString
+  approved: false
+  price: 1

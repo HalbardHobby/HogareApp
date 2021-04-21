@@ -9,6 +9,8 @@ WORKDIR /hogare
 
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
+
+COPY package.json package-lock.json ./
 RUN npm install --global yarn
 
 COPY . .

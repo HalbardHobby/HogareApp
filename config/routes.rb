@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  resources :cleanings
   resources :schedules
   resources :approvals
-  resources :services
 
   get 'static_pages/home'
   get 'static_pages/about'

@@ -1,8 +1,9 @@
-class ServicesController < ApplicationController
+class CleaningsController < ApplicationController
   def index
   end
 
   def new
+    @cleaning = Cleaning.new
   end
 
   def create

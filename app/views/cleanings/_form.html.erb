@@ -20,7 +20,7 @@
   <div class="field">
     <%= form.label :address_id, class: "label" %>
     <div class="control">
-      <%= form.number_field :address_id, class: "form-control" %>
+      <%= form.collection_select :address_id, Address.order(:alias), :id, :alias, include_blank: false %>
     </div>
   </div>
 

@@ -3,7 +3,7 @@
     <div id="error_explanation">
       <h2><%= pluralize(cleaning.errors.count, "error") %> prohibited this service from being saved:</h2>
       <ul>
-        <% babble.errors.each do |error| %>
+        <% cleaning.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>

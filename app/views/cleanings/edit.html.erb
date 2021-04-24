@@ -1,2 +1,6 @@
-<h1>Cleanings#edit</h1>
-<p>Find me in app/views/cleanings/edit.html.erb</p>
+<h1>Edit Cleaning</h1>
+
+<%= render 'form', cleaning: @cleaning %>
+
+<%= link_to 'Show', @cleaning %> |
+<%= link_to 'Back', cleanings_path %>

@@ -16,6 +16,7 @@ class CleaningsController < ApplicationController
       redirect_to @cleaning, notice: "Cleaning was successfully created."
     else
       render :new
+    end
   end
 
   def show
@@ -31,6 +32,7 @@ class CleaningsController < ApplicationController
       else
         render :edit
       end
+    end
   end
 
   def destroy

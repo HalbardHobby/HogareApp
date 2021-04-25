@@ -1,2 +1,16 @@
-<h1>Cleanings#show</h1>
-<p>Find me in app/views/cleanings/show.html.erb</p>
+<h1>Cleaning Details</h1>
+
+<h2><%= @cleaning.address.alias %></h2>
+<h2><%= @cleaning.address.address %></h2>
+<h2><%= @cleaning.start_time %></h2>
+
+<% if @cleaning.approved %>
+  <p>Assigned employee: <%= @cleaning.employee.user.name %></p>
+  <p>Approved by: <%= @cleaning.admin.user.name %></p>
+<% else %>
+  <p>Price: <%= @cleaning.price %></p>
+<% end %>
+
+<% if !@cleaning.approved %>
+  <%= link_to 'Edit Cleaning', edit_cleaning_path(@cleaning), class: "button is-primary" %>
+<% end %>

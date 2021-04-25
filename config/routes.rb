@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   resources :approvals
   resources :users, only: [:index, :show, :edit, :update]
+  put 'users/activate_client/:id', to: 'users#activate_client' 
+  put 'users/activate_admin/:id', to: 'users#activate_admin' 
+  put 'users/activate_employee/:id', to: 'users#activate_employee' 
   devise_for :users
   
   root 'static_pages#home'

@@ -25,13 +25,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :client_id, class: "label" %>
-    <div class="control">
-      <%= form.number_field :client_id, class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="field">
     <%= form.label :employee_id, class: "label" %>
     <div class="control">
       <%= form.collection_select :employee_id, Employee.includes(:user).order('users.name'), :id, :alias, include_blank: true %>
@@ -39,22 +32,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :admin_id, class: "label" %>
-    <div class="control">
-      <%= form.number_field :admin_id, class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="field">
     <%= form.check_box :approved %>
     <%= form.label :approved%>
-  </div>
-
-  <div class="field">
-    <%= form.label :price, class: "label" %>
-    <div class="control">
-      <%= form.number_field :price, class: "form-control" %>
-    </div>
   </div>
 
   <div class="actions">

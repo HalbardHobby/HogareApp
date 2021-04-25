@@ -1,22 +1,16 @@
 class SchedulesController < ApplicationController
+  before_action :set_cleaning, only: %i[show]
+  
   def index
-  end
-
-  def new
-  end
-
-  def create
   end
 
   def show
   end
 
-  def edit
+  private
+
+  def set_cleaning
+    @cleaning = Cleaning.find(params[:id])
   end
 
-  def update
-  end
-
-  def destroy
-  end
 end

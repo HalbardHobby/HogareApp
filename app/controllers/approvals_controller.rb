@@ -1,11 +1,8 @@
 class ApprovalsController < ApplicationController
+  before_action :set_approval, only: %i[show edit update destroy]
+
   def index
-  end
-
-  def new
-  end
-
-  def create
+    @approvals = Cleaning.where(approved: false )
   end
 
   def show
@@ -18,5 +15,11 @@ class ApprovalsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def set_approval
+    @approval = Cleaning.find(params[:id])
   end
 end

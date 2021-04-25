@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  resources :addresses
-  resources :cleanings
-  resources :schedules
-  resources :approvals
-
   get 'static_pages/home'
   get 'static_pages/about'
   get 'static_pages/help'
+
+  resources :cleanings
+  resources :addresses
+  resources :schedules
+
+  resources :approvals
+  resources :users, only: [:index, :show, :edit, :update]
   devise_for :users
   
   root 'static_pages#home'

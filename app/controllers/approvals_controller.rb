@@ -14,6 +14,15 @@ class ApprovalsController < ApplicationController
   end
 
   def update
+    respond_to do |format|
+      if @approval.update(
+        approval_params.merge(admin_id: current_user.admin.id)
+      )
+        redirect_to @approval, notice: "Cleaning sucessfully updated"
+      else
+        render :edit
+      end
+    end
   end
 
   def destroy

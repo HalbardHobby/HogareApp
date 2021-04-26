@@ -15,6 +15,10 @@ class ApprovalsController < ApplicationController
   end
 
   def destroy
+    @approval.destroy
+    respond_to do |format|
+      redirect_to cleanings_url, notice: "Babble was successfully destroyed."
+    end
   end
 
   private
@@ -22,4 +26,9 @@ class ApprovalsController < ApplicationController
   def set_approval
     @approval = Cleaning.find(params[:id])
   end
+
+  def approval_params
+    params.require(:approval).permit(:start_time, :address_id, :employee_id, :approved, :price)
+  end
+
 end

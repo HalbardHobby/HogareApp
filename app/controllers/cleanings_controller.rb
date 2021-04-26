@@ -49,7 +49,7 @@ class CleaningsController < ApplicationController
   end
 
   def cleaning_params
-    params.require(:cleaning).permit(:start_time, :address_id, :client_id, :employee_id, :admin_id, :approved, :price)
+    params.require(:cleaning).permit(:start_time, :address_id)
   end
 
 end

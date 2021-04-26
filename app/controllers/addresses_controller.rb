@@ -4,7 +4,7 @@ class AddressesController < ApplicationController
   before_action :user_is_client
 
   def index
-    @addresses = Address.all
+    @addresses = current_user.client.addresses
   end
 
   def new
@@ -12,7 +12,9 @@ class AddressesController < ApplicationController
   end
 
   def create
-    @address = Address.new(address_params)
+    @address = Address.new(
+      address_params.merge(client_id: current_user.client.id)
+    )
 
     if @address.save
       redirect_to @address, notice: "Address successfully added."
@@ -56,6 +58,6 @@ class AddressesController < ApplicationController
   end
 
   def address_params
-    params.require(:address).permit(:alias, :address, :client_id)
+    params.require(:address).permit(:alias, :address)
   end
 end

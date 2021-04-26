@@ -15,12 +15,36 @@ class UsersController < ApplicationController
   end
 
   def activate_admin
+    @admin = Admin.new
+    @admin.user = @user
+
+    if @admin.save
+      redirect_to @user, notice: "User enabled as administrator."
+    else
+      render :edit, notice: "Could not enable as administrator."
+    end
   end
 
   def activate_client
+    @client = Client.new
+    @client.user = @user
+
+    if @client.save
+      redirect_to @user, notice: "User enabled as administrator."
+    else
+      render :edit, notice: "Could not enable as administrator."
+    end
   end
 
   def activate_employee
+    @employee = Employee.new
+    @employee.user = @user
+
+    if @employee.save
+      redirect_to @user, notice: "User enabled as administrator."
+    else
+      render :edit, notice: "Could not enable as administrator."
+    end
   end
 
   private

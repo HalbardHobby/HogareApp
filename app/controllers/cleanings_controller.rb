@@ -4,7 +4,7 @@ class CleaningsController < ApplicationController
   before_action :user_is_client
 
   def index
-    @cleanings = Cleaning.all
+    @cleanings = current_user.client.cleanings
   end
 
   def new
@@ -12,7 +12,9 @@ class CleaningsController < ApplicationController
   end
 
   def create
-    @cleaning = Cleaning.new(cleaning_params)
+    @cleaning = Cleaning.new(
+      cleaning_params.merge(client_id: current_user.client.id)
+    )
 
     if @cleaning.save
       redirect_to @cleaning, notice: "Cleaning was successfully created."
@@ -38,9 +40,13 @@ class CleaningsController < ApplicationController
   end
 
   def destroy
-    @cleaning.destroy
-    respond_to do |format|
-      redirect_to cleanings_url, notice: "Babble was successfully destroyed."
+    if @cleaning.approved
+      redirect_to cleanings_url, notice: "Cleaning alreaady paid and confirmed."
+    else
+      @cleaning.destroy
+      respond_to do |format|
+        redirect_to cleanings_url, notice: "Babble was successfully destroyed."
+      end
     end
   end
 

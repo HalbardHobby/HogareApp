@@ -4,6 +4,7 @@ class SchedulesController < ApplicationController
   before_action :user_is_employee
   
   def index
+    @cleanings = current_user.employee.cleanings
   end
 
   def show

@@ -1,6 +1,7 @@
 class AddressesController < ApplicationController
   before_action :set_address, only: %i[show edit update destroy]
   before_action :authenticate_user!
+  before_action :user_is_client
 
   def index
     @addresses = Address.all
@@ -44,6 +45,11 @@ class AddressesController < ApplicationController
   end
 
   private
+  def user_is_client
+    if current_user.client.nil?
+      redirect_to static_pages_home_path, notice: "User is not a client"
+    end
+  end
 
   def set_address
     @address = Address.find(params[:id])

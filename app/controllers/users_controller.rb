@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update activate_admin activate_client activate_employee]
   before_action :authenticate_user!
+  before_action :user_is_admin
 
   def index
     @users = User.all
@@ -49,6 +50,12 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def user_is_admin
+    if current_user.admin.nil?
+      redirect_to static_pages_home_path, notice: "User is not a client"
+    end
+  end
 
   def set_user
     @user = User.find(params[:id])

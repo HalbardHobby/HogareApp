@@ -1,6 +1,7 @@
 class ApprovalsController < ApplicationController
   before_action :set_approval, only: %i[show edit update destroy]
   before_action :authenticate_user!
+  before_action :user_is_admin
 
   def index
     @approvals = Cleaning.where(approved: false )
@@ -23,6 +24,12 @@ class ApprovalsController < ApplicationController
   end
 
   private
+
+  def user_is_admin
+    if current_user.admin.nil?
+      redirect_to static_pages_home_path, notice: "User is not a client"
+    end
+  end
 
   def set_approval
     @approval = Cleaning.find(params[:id])

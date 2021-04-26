@@ -1,6 +1,7 @@
 class CleaningsController < ApplicationController
   before_action :set_cleaning, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+  before_action :user_is_client
 
   def index
     @cleanings = Cleaning.all
@@ -44,6 +45,11 @@ class CleaningsController < ApplicationController
   end
 
   private
+  def user_is_client
+    if current_user.client.nil?
+      redirect_to static_pages_home_path, notice: "User is not a client"
+    end
+  end
 
   def set_cleaning
     @cleaning = Cleaning.find(params[:id])

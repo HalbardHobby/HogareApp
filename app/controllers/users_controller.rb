@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update activate_admin activate_client activate_employee]
+  before_action :authenticate_user!
 
   def index
     @users = User.all

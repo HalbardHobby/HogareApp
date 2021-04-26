@@ -1,6 +1,7 @@
 class AddressesController < ApplicationController
   before_action :set_address, only: %i[show edit update destroy]
-  
+  before_action :authenticate_user!
+
   def index
     @addresses = Address.all
   end

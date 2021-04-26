@@ -1,6 +1,7 @@
 class CleaningsController < ApplicationController
   before_action :set_cleaning, only: %i[ show edit update destroy ]
-  
+  before_action :authenticate_user!
+
   def index
     @cleanings = Cleaning.all
   end

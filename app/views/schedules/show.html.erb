@@ -1,2 +1,8 @@
-<h1>Schedules#show</h1>
-<p>Find me in app/views/schedules/show.html.erb</p>
+<h1>Cleaning Details</h1>
+
+<h2><%= @cleaning.address.alias %></h2>
+<h2><%= @cleaning.address.address %></h2>
+<h2><%= @cleaning.start_time %></h2>
+<h2><%= @cleaning.client.user.name %></h2>
+
+<%= link_to 'Back', schedules_path, class: "button is-primary" %>

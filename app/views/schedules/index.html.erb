@@ -1,8 +1,10 @@
 <h1>Schedules#index</h1>
 
-<%= month_calendar do |date| %>
+<%= month_calendar(events: @cleanings) do |date, cleanings| %>
   <%= date %>
+  <% cleanings.each do |cleaning| %>
+    <div>
+      <%= link_to cleaning.address.address, schedule_path(cleaning) %>
+    </div>
+  <% end %>
 <% end %>
-  
-
-<p>Find me in app/views/schedules/index.html.erb</p>

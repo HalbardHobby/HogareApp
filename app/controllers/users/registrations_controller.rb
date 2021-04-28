@@ -12,7 +12,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super do |resource|
-      # TODO
+      client = Client.new
+      client.user_id = resource.id
+      client.save
     end
   end
 

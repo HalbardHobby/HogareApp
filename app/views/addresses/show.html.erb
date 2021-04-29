@@ -1,12 +1,14 @@
-<p>
-  <strong>Alias:</strong>
-  <%= @address.alias %>
-</p>
+<div class="box">
+  <p>
+    <strong>Alias:</strong>
+    <%= @address.alias %>
+  </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @address.address %>
-</p>
+  <p>
+    <strong>Address:</strong>
+    <%= @address.address %>
+  </p>
 
-<%= link_to 'Edit', edit_address_path(@address) %> |
-<%= link_to 'Address book', addresses_path %>
+  <%= link_to 'Edit', edit_address_path(@address) %> |
+  <%= link_to 'Address book', addresses_path %>
+</div>

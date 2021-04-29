@@ -15,7 +15,7 @@ Employee.create(user: employee)
 client = User.create!(email: "client@example.com", name: "Client Example", password: "example")
 Client.create(user: client)
 
-wildcard = User.create!(email: "wildcard@example.com", name: "Client Example", password: "example")
+wildcard = User.create!(email: "wildcard@example.com", name: "Wildcard Example", password: "example")
 Admin.create(user: wildcard)
 Employee.create(user: wildcard)
 Client.create(user: wildcard)

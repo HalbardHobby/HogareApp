@@ -24,17 +24,21 @@
     </div>
   </div>
 
-  <div class="field">
-    <%= form.label :employee_id, class: "label" %>
-    <div class="control">
-      <%= form.collection_select :employee_id, Employee.includes(:user).order('users.name'), :id, :alias, include_blank: true %>
-    </div>
-  </div>
+  <% if !current_user.admin.nil? %>
 
-  <div class="field">
-    <%= form.check_box :approved %>
-    <%= form.label :approved%>
-  </div>
+    <div class="field">
+      <%= form.label :employee_id, class: "label" %>
+      <div class="control">
+        <%= form.collection_select :employee_id, Employee.includes(:user).order('users.name'), :id, :name, include_blank: true %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.check_box :approved %>
+      <%= form.label :approved%>
+    </div>
+  
+  <% end %>
 
   <div class="actions">
     <%= form.submit class: "button is-primary" %>

@@ -1,16 +1,19 @@
-<h1>Cleaning Details</h1>
+<div class="box">
+  <h1 class="title">Cleaning Details</h1>
 
-<h2><%= @cleaning.address.alias %></h2>
-<h2><%= @cleaning.address.address %></h2>
-<h2><%= @cleaning.start_time %></h2>
+  <h2 class="subtitle"><%= @cleaning.address.alias %></h2>
+  <h2 class="subtitle"><%= @cleaning.address.address %></h2>
+  <h2 class="subtitle"><%= @cleaning.start_time %></h2>
 
-<% if @cleaning.approved %>
-  <p>Assigned employee: <%= @cleaning.employee.user.name %></p>
-  <p>Approved by: <%= @cleaning.admin.user.name %></p>
-<% else %>
-  <p>Price: <%= @cleaning.price %></p>
-<% end %>
+  <% if @cleaning.approved %>
+    <p>Assigned employee: <%= @cleaning.employee.user.name %></p>
+    <p>Approved by: <%= @cleaning.admin.user.name %></p>
+  <% else %>
+    <p>Price: <%= @cleaning.price %></p>
+  <% end %>
 
-<% if !@cleaning.approved %>
-  <%= link_to 'Edit Cleaning', edit_cleaning_path(@cleaning), class: "button is-primary" %>
-<% end %>
+  <br/>
+  <% if !@cleaning.approved %>
+    <%= link_to 'Edit Cleaning', edit_cleaning_path(@cleaning), class: "button is-primary" %>
+  <% end %>
+</div>

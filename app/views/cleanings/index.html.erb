@@ -1,12 +1,15 @@
-<h1>Cleanings#index</h1>
-<%= month_calendar(events: @cleanings) do |date, cleanings| %>
-  <%= date %>
-  <% cleanings.each do |cleaning| %>
-    <div>
-      <%= link_to cleaning.address.address, cleaning_path(cleaning) %>
-    </div>
+<div class="box">
+  <h1 class="title">Appointments</h1>
+  <%= month_calendar(events: @cleanings) do |date, cleanings| %>
+    <%= date %>
+    <% cleanings.each do |cleaning| %>
+      <div>
+        <%= link_to cleaning.address.address, cleaning_path(cleaning) %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
-  
-<%= link_to 'New Cleaning', new_cleaning_path, class: "button is-primary" %>
-<%= link_to 'Add Address', new_address_path, class: "button is-primary" %>
+
+  <br/>
+  <%= link_to 'New Cleaning', new_cleaning_path, class: "button is-primary" %>
+  <%= link_to 'Add Address', new_address_path, class: "button is-primary" %>
+</div>

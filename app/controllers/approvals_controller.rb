@@ -18,7 +18,7 @@ class ApprovalsController < ApplicationController
       if @approval.update(
         approval_params.merge(admin_id: current_user.admin.id)
       )
-        redirect_to @approval, notice: "Cleaning sucessfully updated"
+        format.html { redirect_to @approval, notice: "Cleaning sucessfully updated" }
       else
         render :edit
       end
@@ -45,7 +45,7 @@ class ApprovalsController < ApplicationController
   end
 
   def approval_params
-    params.require(:approval).permit(:start_time, :address_id, :employee_id, :approved, :price)
+    params.require(:cleaning).permit(:start_time, :address_id, :employee_id, :approved, :price)
   end
 
 end

@@ -1,5 +1,6 @@
 <div class="box">
-  <%= form_with(model: cleaning) do |form| %>
+  <% url = !current_user.admin.nil? ? approval_path : cleaning_path %>
+  <%= form_with(model: cleaning, url: url, local: true) do |form| %>
     <% if cleaning.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(cleaning.errors.count, "error") %> prohibited this service from being saved:</h2>

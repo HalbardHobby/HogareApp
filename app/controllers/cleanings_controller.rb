@@ -32,7 +32,7 @@ class CleaningsController < ApplicationController
   def update
     respond_to do |format|
       if @cleaning.update(cleaning_params)
-        redirect_to @cleaning, notice: "Cleaning was successfully updated."
+        format.html { redirect_to @cleaning, notice: "Cleaning was successfully updated." }
       else
         render :edit
       end
